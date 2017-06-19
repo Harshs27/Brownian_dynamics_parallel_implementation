@@ -1,0 +1,126 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+Begin optimization report for: rpy_ewald(int, double *__restrict__, const double *__restrict__, double, const double *__restrict__, double, int, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at rpy_ewald_polyd.c(86,5)
+<Distributed chunk1>
+   remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(90,9) ]
+   remark #15416: vectorization support: scatter was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(92,9) ]
+   remark #15416: vectorization support: scatter was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(93,9) ]
+   remark #15416: vectorization support: scatter was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(94,9) ]
+   remark #15305: vectorization support: vector length 16
+   remark #15309: vectorization support: normalized vectorization overhead 0.025
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+   remark #15462: unmasked indexed (or gather) loads: 3 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 314 
+   remark #15477: vector loop cost: 53.930 
+   remark #15478: estimated potential speedup: 5.700 
+   remark #15482: vectorized math library calls: 6 
+   remark #15487: type converts: 4 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(86,5)
+<Remainder loop for vectorization, Distributed chunk1>
+   remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(90,9) ]
+   remark #15305: vectorization support: vector length 16
+   remark #15309: vectorization support: normalized vectorization overhead 0.034
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(86,5)
+<Distributed chunk2>
+   remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(91,9) ]
+   remark #15388: vectorization support: reference m2_array has aligned access   [ rpy_ewald_polyd.c(39,6) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.053
+   remark #15301: PARTIAL LOOP WAS VECTORIZED
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 194 
+   remark #15477: vector loop cost: 23.620 
+   remark #15478: estimated potential speedup: 8.100 
+   remark #15482: vectorized math library calls: 1 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(86,5)
+<Remainder loop for vectorization, Distributed chunk2>
+   remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(91,9) ]
+   remark #15388: vectorization support: reference m2_array has aligned access   [ rpy_ewald_polyd.c(39,6) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.109
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(225,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed OUTPUT dependence between a line 232 and a line 232
+   remark #15346: vector dependence: assumed OUTPUT dependence between a line 232 and a line 232
+
+   LOOP BEGIN at rpy_ewald_polyd.c(229,9)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(98,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at rpy_ewald_polyd.c(117,13)
+   <Peeled>
+      remark #15305: vectorization support: vector length 16
+      remark #15309: vectorization support: normalized vectorization overhead 0.143
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 773 
+      remark #15477: vector loop cost: 145.120 
+      remark #15478: estimated potential speedup: 4.950 
+      remark #15482: vectorized math library calls: 8 
+      remark #15487: type converts: 3 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at rpy_ewald_polyd.c(117,13)
+   <Peeled, Remainder loop for vectorization>
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.188
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+LOOP END
+
+LOOP BEGIN at rpy_ewald_polyd.c(170,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at rpy_ewald_polyd.c(183,13)
+      remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(185,17) ]
+      remark #15388: vectorization support: reference m2_array has aligned access   [ rpy_ewald_polyd.c(186,17) ]
+      remark #15415: vectorization support: gather was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(187,27) ]
+      remark #15415: vectorization support: gather was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(188,27) ]
+      remark #15415: vectorization support: gather was generated for the variable kvec_array:  strided by 3   [ rpy_ewald_polyd.c(189,27) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.449
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15460: masked strided loads: 3 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 341 
+      remark #15477: vector loop cost: 51.750 
+      remark #15478: estimated potential speedup: 6.490 
+      remark #15482: vectorized math library calls: 1 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at rpy_ewald_polyd.c(183,13)
+   <Remainder loop for vectorization>
+      remark #15388: vectorization support: reference k_array has aligned access   [ rpy_ewald_polyd.c(185,17) ]
+      remark #15388: vectorization support: reference m2_array has aligned access   [ rpy_ewald_polyd.c(186,17) ]
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.423
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+LOOP END
+===========================================================================

@@ -1,0 +1,4 @@
+mol modstyle 0 0 {vdw 1 20}
+pbc set {20.181 20.181 20.181} -all
+pbc wrap -all
+pbc box -center unitcell -color tan
